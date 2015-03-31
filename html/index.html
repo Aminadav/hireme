@@ -1,0 +1,148 @@
+<html dir=rtl>
+<head>
+<meta charset="utf8">
+  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="msapplication-tap-highlight" content="no">
+  <title>ChocolateChip-UI Android</title>
+<link rel=stylesheet href="chui/chui-android-3.8.3.css">
+<script src=jquery.js></script>
+<script src=chui/chui-3.8.3.js></script>
+</head>
+<style>
+input[type=checkbox] {
+	width:20px;
+	height:20px;
+	vertical-align: middle
+}
+.footer{
+	position:absolute;
+	bottom:0px;
+}
+
+input#take-picture {
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  right: 0px;
+}
+
+article section {
+	padding-bottom:0px;
+	padding-top:0px;
+}
+
+</style>
+<script>
+	var goto;
+	if(location.hash.match(/token/)){
+		goto='#regsiter_name'
+	}
+	// goto='#register_jobs'
+
+	$(function(){
+		if(goto){
+			$.UIGoToArticle(goto)
+		}
+		$('#register_jobs button.btn_next').on('click',function(){
+			$.UIGoToArticle('#register_complete')
+		})
+		$('button.btn_prev').on('click',function(){
+			$.UIGoBack()
+		})
+		$('#regsiter_name button.btn_next').on('click',function(){
+			$.UIGoToArticle('#register_jobs')
+		})
+	})
+</script>
+
+<body class="isAndroid">
+
+	<nav><h1>HireMe</h1></nav>
+	<article id="login_register">
+		<section>
+		<h2>
+		גלה מקומות עבודה חדשים.<br>
+		תן למעסיקים לרדוף אחריך.<br>
+		מציאת עבודה חדשה ללא מאמץ.<br>
+		השימוש הינו בחינם<br>
+		</h2>
+		<ul class=list>
+			<li><button>הרשמה/כניסה באמצעות מייל</button></li>
+			<li><button><a style=color:inherit;text-decoration:inherit href="https://accounts.google.com/o/oauth2/auth?scope=https://www.googleapis.com/auth/userinfo.profile+https://www.googleapis.com/auth/userinfo.email&response_type=token&redirect_uri=http://www.hireme.com/index.html&client_id=957981325050-9mkguu98li3cbokqffnolv6fu06d452t.apps.googleusercontent.com&hl=en&from_login=1&as=190e07f14234d78c&pli=1&authuser=0">התחברות בגוגל</a></button>(רק זה עובד)</li>
+			<li><button>התחברות בפייסבוק</button></li>
+			</li>
+		</ul>
+		</section>
+	</article>
+
+	<nav><h1>HireMe - הרשמה מהירה</h1></nav>
+	<article id="regsiter_name">
+		<section>
+		<h2>על מנת להשלים את הפרופיל שלך<br> מלא את הפרטים הבאים</h2>
+		<br>
+		<ul class=list>
+			<li><input placeholder="שם מלא" type=text></li>
+			<li><input placeholder="טלפון" type=text></li>
+			<li>תמונה:<br>
+			<div style=position:relative>
+				<img src=images/photoupload.png>
+				<input type="file" id="take-picture" accept="image/*">
+			</div>
+
+			</li>
+		</ul>
+		<div class=footer>
+			<div style=float:left><button class=btn_next>הבא</button></div>
+			<!-- <div style=float:right><button class=btn_prev>הקודם</button></div> -->
+			<br style=clear:both><br>
+			ניקוד: (10)<br><img src="images/progressbar.png" style="width: 90%;" align-center>
+			<br>
+		</div>
+		</section>
+	</article>
+
+	<nav><h1>HireMe - הרשמה מהירה</h1></nav>
+	<article id="register_jobs">
+		<section>
+		<h2>בחר תחומי עיסוק - עד 3</h2>
+		<br>
+		<input placeholder="חיפוש" type="search" results="5" id="i7xucdxh2">
+		<ul class=list style=max-height:200px;overflow-y:scroll>
+			<li><input type=checkbox> מלצרות</li>
+			<li><input type=checkbox> שיווק</li>
+			<li><input type=checkbox> מהנדס תוכנה</li>
+			<li><input type=checkbox> מלצרות</li>
+			<li><input type=checkbox> שיווק</li>
+			<li><input type=checkbox> מהנדס תוכנה</li>
+			<li><input type=checkbox> מלצרות</li>
+			<li><input type=checkbox> שיווק</li>
+			<li><input type=checkbox> מהנדס תוכנה</li>
+			<li><input type=checkbox> מלצרות</li>
+			<li><input type=checkbox> שיווק</li>
+			<li><input type=checkbox> מהנדס תוכנה</li>
+			<li><button>מקצוע אחר</button></li>
+		</ul>
+		<div class=footer>
+			<div style=float:left><button class=btn_next>הבא</button></div>
+			<div style=float:right><button class=btn_prev>הקודם</button></div>
+			<br style=clear:both><br>
+			ניקוד: (10)<br><img src="images/progressbar.png" style="width: 90%;" align-center>
+			<br>
+		</div>
+		</section>
+	</article>
+
+	<nav><h1>HireMe - הפרופיל שלך הושלם</h1></nav>
+	<article id="register_complete">
+		<section>
+		<h2>
+		ניצור איתך קשר בהקדם לגבי המשך התהליך<br>
+		תודה!</h2>
+		</section>
+	</article>
+</body>
+</html>
